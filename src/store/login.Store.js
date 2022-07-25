@@ -3,7 +3,7 @@
 import {makeAutoObservable} from 'mobx'
 
 import {service} from '@/utils'
-import { getToken, setToken } from '@/utils/token'
+import { getToken, setToken, removeToken } from '@/utils/token'
 
 class LoginStore {
     token = getToken() || ''
@@ -22,6 +22,11 @@ class LoginStore {
         this.token = res.token
         // token传入ls
         setToken(this.token)
+    }
+
+    logout = () => {
+        this.token = ''
+        removeToken()
     }
 }
 

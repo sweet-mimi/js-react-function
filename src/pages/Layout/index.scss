@@ -1,0 +1,28 @@
+.ant-layout {
+    height: 100%;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    color: #fff;
+}
+
+.layout-content {
+    overflow-y: auto;
+}
+
+.user-info {
+    padding-right: 20px;
+    color: #fff;
+    
+    .user-name {
+      margin-right: 20px;
+    }
+    
+    .user-logout {
+      display: inline-block;
+      cursor: pointer;
+    }
+}
