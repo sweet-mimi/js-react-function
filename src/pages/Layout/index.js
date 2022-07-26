@@ -38,7 +38,7 @@ function GeekLayout() {
     useEffect(() => {
         // 在这里调接口， 副作用函数, 传 空数组， 只在加载时执行一次
         userStore.getUserInfo()
-    }, [])
+    }, [userStore])                      // 这里传入 userStore 是为了不报错，userStore数据不变，也是只执行一次
 
     const navigate = useNavigate()
     // 退出登录 ，清除token

@@ -1,6 +1,6 @@
 // login module
 
-import {makeAutoObservable} from 'mobx'
+import {makeAutoObservable, runInAction} from 'mobx'
 
 import {service} from '@/utils'
 
@@ -15,7 +15,17 @@ class LoginStore {
         // 调用接口，获取登录信息
         const res = await service.post('/api/v1/userInfo')
         console.log(res);
-        this.userInfo = res.list
+        // this.userInfo = res.list
+        // 异步方法赋值： 第一种
+        runInAction(() => {
+            this.userInfo = res.list
+        })
+        // 第二种
+        // this.setUserInfo(res.list)
+    }
+
+    setUserInfo = (value) => {
+        this.userInfo = value
     }
 }
 
